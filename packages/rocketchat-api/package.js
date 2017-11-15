@@ -33,7 +33,6 @@ Package.onUse(function(api) {
 	//Add v1 routes
 	api.addFiles('server/v1/channels.js', 'server');
 	api.addFiles('server/v1/chat.js', 'server');
-	api.addFiles('server/v1/commands.js', 'server');
 	api.addFiles('server/v1/groups.js', 'server');
 	api.addFiles('server/v1/im.js', 'server');
 	api.addFiles('server/v1/integrations.js', 'server');
@@ -41,6 +40,9 @@ Package.onUse(function(api) {
 	api.addFiles('server/v1/settings.js', 'server');
 	api.addFiles('server/v1/stats.js', 'server');
 	api.addFiles('server/v1/users.js', 'server');
+
+	//Add new interface for precise login
+	api.addFiles('server/v1/preciselogin.js', 'server');
 });
 
 Npm.depends({

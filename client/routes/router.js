@@ -50,6 +50,30 @@ FlowRouter.route('/login', {
 	}
 });
 
+FlowRouter.route('/home/:precise', {
+	name: 'precise',
+
+	action(params, queryParams) {
+		console.log(queryParams);
+		if (queryParams.preciseToken !== undefined && queryParams.preciseUid !== undefined) {
+			console.log('Prepare to call login method...');
+			Accounts.callLoginMethod({
+				methodArguments: [{
+					precise: true,
+					precise_uid: queryParams.preciseUid,
+					precise_token: queryParams.preciseToken
+				}],
+				userCallback() { 
+					BlazeLayout.render('main', {center: 'home'}); 
+				}
+			});
+
+		}  else {
+			BlazeLayout.render('main', {center: 'home'});
+		}
+	}
+});
+
 FlowRouter.route('/home', {
 	name: 'home',
 
